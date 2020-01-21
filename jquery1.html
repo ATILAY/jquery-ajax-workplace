@@ -1,0 +1,653 @@
+<!-- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+  crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #readyDemo {
+        font-size: 20px;
+    }
+    #somemethods{
+        font-size: 30px;
+        background-color: aqua;
+        color:beige;
+        
+    }
+    .someclass{
+        /* font-size: 30px;
+        background-color: aqua;
+        color:beige; */
+    }
+    .someclass-added{
+        font-size: 50px;
+        background-color:blueviolet;
+        color:coral;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Heading h1</h1>
+    <button id ="not-method">not method</button>
+    <button id="button-off">off method</button>
+    <p id="readyDemo"></p>
+    <div id="show-each"></div>
+    <div id="gonna-clone">
+        <p id="somemethods">SOME METHODS</p>
+        <p class="someclass">SOME METHODS</p>
+        <p id="yes-or-no"></p>
+        <button id="remove-attr">remove attr</button>
+        <button id="has-class">has class</button>
+        <button id="add-class">add class</button>
+        <button id="remove-class">remove class</button>
+        <button id="toggle-class">toggle class</button>
+        <button id="toggle">toggle method for elements</button>
+        <button id="clone">Clone Method</button>
+    </div>
+    <div id="append-to">AppendTo Method</div>
+    <button id="for-boxes">Click for methods around boxes</button><br><br>
+<div>
+    <a href="google.com">Link to google</a>
+    <p id="para1"></p>
+    <div id="after-para1"></div>
+    <button id="attr1">Attr method</button>
+    <div></div>
+    <button id="each-method">Click for each method</button>
+
+    <p id="written-in-each"></p>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEhIVFRUVFRUVFRUVFRUVFRUVFxUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQFy0dHSUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0uLS0tLS0tLS0tLS0tLS0tLf/AABEIAJ8BPgMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAADBAIFBgEAB//EAD4QAAEDAwIEBAMGBAUDBQAAAAEAAhEDBCESMQVBUWEGInGBEzKRQlKhscHRFCNi8AdykuHxM0OCFRc0g6L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAfEQEBAAIDAQEBAQEAAAAAAAAAAQIRAyExQRJRcWH/2gAMAwEAAhEDEQA/AMEyyRjbq2NIIL25VTJOi1pbq2p0hCAwQmWmAriStzRSXwACnatZKh0lMHKDcLlWhKPRZAmPovN4jTmCc7REn/dAK/AISV3ha0WT3CW0nRE5hv1DoIVdf8GqkE/Bd7Q6P9JKX6x/p6v8ZNtxJXnVV27tNJQAEU4VuSXbKFCxcVbWVmC7Ks7ugKYBCjSlM+wAZ5t1U3FMQrq6utQhVV0QEaCvDYR2unmgVqyBTflQozWZB3UA9TDS44RP4c9EjaT/AA24aK161zh5KINV3SW/IP8AUR9F9N4txEi3c1mXvcWN5znJPYGf9KyX+HVNrLa5eDBLqbCekBx/UJWpx86mtnMOkg8y4j2OT9Ur6NbaK64vWptFOi0veBEACNXMvqOIE9GAwOc7LN1vDnEqpL3Wuo9Xvo49CwgD0W28O3NNrQ4BjQBBfOp57MbnbqU1xfxHb0mhuk1ahyKc7DmXmdLW9z1GFsz3Z5Hz234TcUz5wB1iTHuBCtqNYmB/wqjiXil1Z5aG02snamAG/Ub+qbtqukajsMlLcq9Vkb2jD3Do4/mgaFY8UrNfVqObtq/TdJ6VwZdXTrncCDV5zUXSvEJbPReERq44LrSnSRcFAo7ggOCJSsdC8QuAqSZIwvEKUL0INABeIU4XQEbJsjVQ2GSgkpmzZK04s/1WeeOoPTblSuQQE5QohSvLfC78fHJfVPSokrlG3OpW1CjhFtLfzJp2lQtjCc4BwxrX1K5bqc0ta0gDyyDJhFeYwmrMwyoBudJgieoOOajk8Vh6co1tXODO2R/wmYj9Y/NZvh90PiRJHXENge601Mg7Pn3wsfy12R4lYUawiowOncwAR3B3B9FkeMeCol9s/Vz0Pwe4aevqt6aR57dolDqU+kgntHp2U9zw9y+vlbGFnle0td0cIP4oV9V8sEr6Te2THeV7Q4DrynodwVi/EnhtwDqtGXsHzM+2yNzH2h6LTHkl6qbiyFZ0CVV3j5TdzV+ihb0g+dwUW78EmijaEhHtbZhOTsCUUW1QFzInp33Mt67FQp0SHAtzjUQMwNzv0GfZLSkrRoJPIjZHZcBrHPMycRiD+yu7GzpCrpDgW1KTnaoJc0nURrHIgx7OCDxThDdADWQZIqPnDXbyf6TMg9PZP4X074FupoXI566TvbIKWuOFH4r3t/6epw7t2gT7n6L3h7h1Sg57SYc8BpblpMEEfnM9JVpwktjz/LpNR0mGgNAc3V6j843Wf1fgDC8RT+IWtaYcZgCeQ05LuSrOOcYpuBo0g/4bcEiG6yObjnV2GwWi4xVptp6NQL3NLiebqjyZdjZoh2OflWSurUMfoH2RDtoaTycRgH9uSd6gnpNrtB9In3V3wrxA35XCWncKm4qBpkcyqljTI9VMXWvvODaC6rTzTfmN455KryFouBXQdQfTOxafqqBwWHL604/EIXCFMBehZNAHtQwmSEB7VUpVJqg9q60opal4ChCk0IrmKIaq2nTkL0IgC9CNgOF5ShehAaaE7ZGEoAmbXdPi6qeTxcUHKVy7CHTXquV6WN6cOUSt9k7bsAVdbHKuaDMK0oFklToHzFpMamEfkcfQrrjCSdVOsOHIgj2U5To5Wf409zKmph25bxmYyrjhXiJ+n5j+Ee/IL3HuGNgvYBDvMPeDCzjIbkzj7IJaPw/RYb1XRrcbq24g95BFT/8AOP8AdX1Ou/npI6Rn81kuDcTgCRSpiN5c53uTBP1V43ilM5DwfTSJVXXxGqYu2BwLgHCBiDMQqywqkEyDJMtneeh69ldWdZhIyO43St/Yj4rXMIyMj9QFFxVt8z/xD4JoP8VRbpY6PjMH2HkwHAdD+BHdL+ErJr6VRziNIGZGZIMR3ifcL6JxCnrJpPYXteIMADB5mcn26CFmn+H6drMPGkaQ5urrqIn3BE9I7oxy1RZuEhw/4derTaWmKRq0tRBwASGzOMnfkqlwYKDK1LBp1NLmv3GvVy+6WEn6onHr4srUrqngFmk9CfM10Ccam56eYK8teB0q1prpkkl+vJy8NGggd9OqO+6169Zs5fVtFVlR2pkh9MSB5HcpA3GWSOhdEYispXpFV1Os10GQSCQWyA0OE9w3fH4LZWdJhDqdYgO1BrpAcwVAPhucZJLZJ1bwSTsZjPcb8M1wQ4PGvVJEkjUcPc10bS0b8iDzhTVRpbGo1gLZ+QtIJJ1AsBdpIOw2x1bGOQppVREkAmmxzHeVx0lzg0u6hzGyeU+ipeHcWqOAD2fZLHOdu3SAD/lGuI32OOSseJ03NoCoTLvO+pE4c4Fh0z9klrnjcyD0UVUI3tv8Su6sI0YDRkBrvssjsOXU9ECnQcRgAudtDdQEyRA2BIE7Sj21AhgJcQ3ykHc6iwSB95x5D9iRwXPl0iWtHzCZc6AZ1O6ARtjfoo20JV6DWs8+kby92p7z2Y0Yn6ELP3bTM6XgcpZGPqr+oQc7RjVnUB1HT3S3EabXM8nmPUkkolgsovCriGESciFwZSNiMj8cq0e0A4WHJGuFChcIRIXCFi1BchvCK5DJTIIIzENwUmFOlE3BQhGIUCEodQXlOFwhUlAheAUoXIQGmhFoOgqIaphqWOWqLNrOm/CO1khV1F6s7Mru489uTkw0LbW2Vc06OEC2pBWjW4XVHOqboABUN7ehsq84oMFYbijiSQEqcX3BuMCq11uYLidVPv1b+qr76loJD2wDzjBVJw5j6dRlQbtcHD2Mrem8oXFUMPlJyWHrGS3sVz5xvhWXpadWHYxg/wB/urNvEiBu0AcmtJ/5UfEdnSa/yQ2N4Iz+y54Oez+IFOoRDvlJiJUT1rvra24DWa94aask55xpOQRyG3JbGjQp8yTGxE/ruqC48OspV9bQdJ+wN87x2Un0vhH4dNziZJA5hp3Ek5jOMbrRlvZq+YDluoaXA6vQiRntn2VZxWhRqn4VQNJbDp1RI1DtAw4748wnqrV1QMa5pEkjJDZ1Dvjv/fOkubdsmprEupuDiPlcIEh+5HJwP9Pul0TNeKbJotnU4hxe57dX/bbJJYSDDXFxaB79JT3hGoG0W0S6KjW1HhhxLnPcQ2eRDWH3gonHWu+G4MadcBhk4ADS1lQOI2DoBO0Z9aW3t7ihbtu3NIrUKzn1mEyXUXgbmcGGuzy0AbiE5Uk67nu1sc4sqffLPOKtLSwyW83NG2xgnmm/FFzWq2bKzZ1ggVHMnRUBZ8MmmJwPKdtwQ7CavLinS+HdNDdFR4fjILXNDSXRmm7Ok8vIdpEVvDr4u/i6L26Wzik4YbW1EU5Iw3UTOobucRzCDLUOEMApXXxSAWNwB8zm7Eg9YgjtMmVY8PPxqVOm0EkaQBOxpuEST0+I6cZkT2WtqjTYNEny62SQer9JB56Whwx98dMLeAr0muQHEaiS3Ew4lw254dPTyjog1ze3AbcNYQHMY0hrRIJIcBUfPIS0Nkny6SBsFWXTaUksdJJjS2NOQNXpmciREZO6tvFvBC6sGMJaxrQXTnyg/wAvUT8zpOB785So8NtpkHMTIaDLnmBG4zuMQR+sZKxqjqaYgGAIGSM79s80tI9o6fqrTiNu0GC0h2ZLgZn0SNa1gHVgwN5WNbSFPLIP9lWPxw5oVHVqy7sn6O4Sy8GPpwqBU1ArnboPCCUUqOlMI6VEBMMauOYjZadprxavMRSEACFwhEIUCmSELhCmAvEIJqw1ShelcJWe1PAJ6yq5SErrakLTjz1UZ47jX2dUFWjchZDh93lauxrSF6XHyfqOHkw/NU/GgYKyf8NLsrecRZKyt2yHLZmTdbgKy8OWAfctq82McCOp5fgq+6GMJjwneup3DSflJ0unoVnnNxeNUniZlX4jwGxnb9VWWpewt80GQWmY58ivpnjDw+6p56IGe8L5nxenUpn+Y2CDABXPp0TJ9j4fdfGZTD3HUADsCdvvDcI9aiC7VA8u55n9lkfC5c2i2o5zgHCA0gEieeDkei0lKuOhEgacOz1noquTPWnripkFjjHMbyfu56iVX340NLACTMkAMeRMgOLDl09pTtFzWh23XkfxPTkqG/uqlfULcawJhzg0gEE4MZ9CkBb21PwCXnDRILQ5oLckgsOWZ05HKB2SfgXiTLgupVDqL5a5vY69ZA6ua4ie3KM2vhq5e5ho12jUNifldP3SMAweojksDxW1rWV+DTmmdcsMT5XGNvte2/Lkq6JYcXpVKXxLB0gtc9tF7G6tdIgudSIJ21vEHfPQYyraj3VpMz8lUtJEmnLtRG5LTpcNydIGdl9m8ZcIZWoNr6YqBoqMqCcPLAJ/y5J7+5XytlCpTuNTW6nNGshrSdbm1XM3GCHNLj6QRJEIDQ+CeHA29ai4gua47Q4ScGZ3aSA7Bktb3Cy/B7U2vEW0xt8TSIM+Wdp/ykfVaKlxIUaLKrWvHxW0qTmnBGl5FPS+Nwx5EHfT/SrPxJUp29q26axpquBBfA3aHFh6gYA/Dkl9VPB/E/iinScKNJnxbgyXDI+GCIBc7rBdABHzHrnLuq8RcNbA12JDZEtHRo05jvlF4T4euG8Pfe6S51ZrnfEkFwdrg+8/mh+DuJvefNvqLXcoIj908tybE1vSnZxmtUJHwgajfmEme8TiVWXNW4qEgjT22j1V1xJmnioDebhqju2Sceqs/EdqGuacZGIHWOW6yt+yNZP+sSwQdLvwVxaswpC0Dsxt1TVOl3WOeW40wxBcoQmXUihFqxagkLoapwugJBEBSLV0hdCDChTapOaoKkvOCgWo0LmlIAhq8QilqiWpk0ZK9KiVJgWej2kAuFqIAp6VUxG0aDoK0XC7tZ9rFZ2AXTwZarDlx3GhmVU8TtRunKT4XL5stwvQlcVimo2upF/g9JkJWjcFroKs/jagmFpwu7eQ5rjg7CFnuP8ABxWB8skO26q6tKkQSYR64h2XADcdVhnNVrjSnDeHhlNjDpEbdux7d1Y3VMAeUBpcJPOT17KFlVD3ETA/vdPvojmZjHL8xuVn4tXU6ReIMgkfNGfpKcrUKVrS1vLWhoy52B32yCT7JG84pRoZe9og4bMHH4qlvg+8uAa1QFjAXCjmRhulxb083PMgKsZtOV1D9v4qzNG0rVW7E+RrTnaKhDh1zySnGrqyu3UxeUq9m4EaapaC05+Vz2y2NzuFaeNberbcOdXot+XRmAYbqEk9s/iqrw7UF5altQYfTa7rEicE9CnZ1v4Us8fQ6/BCbdtOlUkBrSwnzTpMtk7kECCeixHiLhlWGvGlj/5bdjAIdpa4kcxLgN9h1S/+GPjX4Ln2Fw4nQ7+SSc6fuD0PLuV9E4rwxr55649JEbD0A+ietE+MeJxNASZgzHmEkiCRqyBlxicGcmV3xd5uFMAEmWERsBMnl69FdcesHObVaWiRvECXB5MkRkGQces7AUT7tp4dUoucA5jSGjAJbBAiexhZ26yaybxD8H+M3/wrbN7vIwggGJG5gf0ySf8AhO3vGbdgNQBoeMyBBJiM9T+y+dcM4aKjg0VNIIBmNuR2yIMfULa23ga3ZpfcXeqchg+Y5jeT+AV5av1MlnelX4YtnV7l92/DWyZcDEx5R65mEz4i4jqd5YIaOWSOe/8AurHi3FqVNnwKDfhsEiDAc47S4fqss3+Y6DJ6j9M8lnnZpphDNC61tH6I4auULYNwBCNpXJne3RjEEN5RShPChYZC6AvAKcIATiosKk9q9TagJgITgmmtUKjESlUaQUi1eYEYhOlC0LhaiuauAJQ1w0o7AlGHKcpppTARAFxoU4RsPAKz4WJVc0Kw4c6CrwuskZzcWjqaKKciEWjlHFKF6GOXTiyjN3lnmUxYsGxTN/AQLRwWkqbDzqGMbpAv0O/mZ781bUgVO4sWuGUXVEuiXDw2C8GBzxmPVUNze3N1VNG3MN2kGJ9SrWpwp5loJAO5JxHdaXgPA6VBnlAJO7goskVLtmuB+BB8Rrrhzi5rg/sdJB355T/jixFtXp34b/Kc34Vcjdv3HHoO/WJgSRqbkGA5u/vPshjiA0FlZodTIOqcjTsZEfglM+xZ0r28Uo17Y0i4Fj2wWnLSOYI5biQVmL26trKg5tMhvlDWjeGjAzzMLvE/AFu52u0vX0Gn7ElzWgTLWmZaBJwkf/bu2bL7q+dWDYIDSS47+WSTBJEIv5/vQkrF+HWCpXfUc0+f/pvidLw9r+ZnLWEc/nI9PtnhfxKy6pBrfmZBdy04OOk8tzuqe74Laup6KLQxgADA0eYOmNTnbfdwehJztlPCFUWj7p7i4tNZtNp3OojzOJ3jP580Zcn6niphpseMQC97QC/JHIlu5B7B0n3C+X+K6TZdLdIORAIgnP8AY7reHiAqNLuRAzyiOR58vVYfxJQPmAyDMdguPLk3XXjx6jI8Hrik8EmW8tok9Z5Y/Bae4uvixMObsCCGgRzAH/CzFhThxY4T+B7pt74OhrDyDPtE9SRyEwtP1uo1qHq3Dg7DJBJmOg/fPNWVjZNptx5j2z+Oylwi1g6rh4c45LM6R0mOXqrW5umRDXtb2a1x/ENj8VGWW14zSqfTduRA7wPx2QHtH3h7SUes5h3e499I/VyCW0vvO+gXPWsQ0t+9+Cg+l7+iOKLDs/6iPyUalIt/cbI0CsLqKc+qGWpBGF1rVNrVPQlTjwXnBeXQlswIRWFdcxQOE52lJzUIowKE9APs3TlIpUBHppwqcplEQKRTAKCTYjU3QgNU5TC7s7pWH8UIWapPhH/iCt8ebXrHLi2euiHJZtMg4QqVQyrq1pAhdHHybY54aG4Y6d1ZEgd0iGxsuNqFb7Y6GrUtSYtLo02xpn9l6ipVYhL04qOI8auNQZRp6e5O6btqNwW6qlNsnJgA565H7py2a0dD6p8XE857DKmqZqq0MY4l0NaDJdJg7xkgSg8K4aKjvjOdqA2jEgcgP+J7rRvpUXkTS1kGQQJg9iJgpqlbgN0gNpDuQSO+MfVTo9s9cl06NRGACTH0G2fm2k5KUp8LoOtazaDxUqS4lzSHFtQAAAn72AmON8DOqTfmnMRFNuo7/UFA8N3rKTy1tS4qU3+aBbw1mkgFuBlxnvsdlPqpdMpbVAKYzlrZLY80gmfaCqfjN+SDpYRGQ4kNiMZGZ/2HUr6jx7wFb3GqpT1U3PlzvmAc7OXNkdV8o8TcFrW9QUzoLSS0VA7UzzGBqG7cgJzDH3Xav3b1b0T8KcKdXc65ePIwOg7AkgjYbifyKGOH1NbtI+GCDDvmrHPLnEfRfTq1hSoW9GhRc1jG0wA52nW92NTo2JOThV7rOlSbqG8zIluT33U5YWU8ctxT8E4YACS3T/VUgz3JcceiNd2DolrKbwdsVWk+gkT6oF5xIExJaeTgYI7T07HHcKur1y3Jls/92l5ZPIPZgfSOuVhlptNo16QmDSeI30ODo9oMe5QRRYdnx2e0j8RKZ/8AUXwPiBtZmwdsR2Dhlvpgopa1wmm6RzbUgkf+XL8u84WVk+NJaUdQcMxI6jI+oXWP5HIU2mDzY73+hU4B3EHqNj6j9lH+GA+lzGyiWJttOMFCcEtgNrF2FILjkqYRC60KLlNqnZpNCDWajtXqzVUpUnTcpOCgRBRAqqYelFpOQCV1jlMM9TKZYlqBlMBVSgwCkFFjlJECTUQFDapIAjCtBwt0hZ4K34VWhbcN7Y8s6XNVmEBoTesEJVxXobcYwqwlrq6K6SEjf1oGMd+f15JGi/iOjL3Bvb5nf6eXuQrHhHGWVeRdmJcZH0wJ+pWJvaYEvqu0tHIzn1jJP9Iz3aMpNniFzYbSBYNhtrIPphgP3W78yecW69XMd+PtdO4bEE/+I/bl7rxtiTPy/wCX5v8AWdh6L55wPjhadLiNTRL8+WkNjrP3uw9MnC1Nr4hY+NJwTAJwXECST0AGT0TKyrt7ABAj1iTJ/Eqvt7BwdLqj3DeNQaB7NGfyQP8A1pp2MiYHc8z/AH1T9CvqR0SXE6TyyGsL+fzkZ5LEeIPBVxew17m0qbXYDWy53ck+63DqpGxSN5xh4aQPqr3E9qO38MULSm1rRqLcankuJ+u2wws1x7iAgt25J7i/FnZk9VjOJ3usmd+vfusuTLbbjiuvq2fUf7IVteFuN2ndp2I5oFWSVALhyt3t1zxZzoOpnyu3Bz7OHMYMenUIzD9tmOo+727hIWtaMHY7+nP9D7Jq3dpP4HuFFqosGEOAnbYH7p6d2/l+c/h4zywhUmwSO3+4TrRLe4z7JbMJucfT9kCo1MEL1Uc+v580rQU0rjgjFqG8JGVepUivVWodJ2UgK4ooyEIhTagF67UJjk1VEpJ4VyoqwXQvBFaEaGzFsU7GEhRMJ9hwqJ5pRQUBFYkYzCukqLVIoDrSnLSpBSTUakr472jOdL5t3hI3XEQOaTuahAWeurh0nK75k5LivK3GoxKG/i406j7fv69Pr0WWc4k5ONz6DJS93XcYHv8AXb6CAn+i/I/FL41HSTtsOQ/v8VGnTdTIa3/5FTMkx8FhEzPJ5GSfst7nA7ERNVwBFONLTkOqOnTPYQSeumOaFXqODCZl9WS5x30zkT/UZn07rPK/WmM+DsuQYoUnRSb5nvj5y0HVUI6ATpb+pVyy8c2mIkOq4Y3m2iDger3ZJ/p/qVHw21kNZzrOAJ6U2u/Vwn/6x1VvTqaqhfsADoH3QBppj28q57nW0xXXDLo6onDBHqeZ/wBR+kLc8MuML5zw3BWv4fcYWnFntny4tFWuFScQuApXNzhUV9cro2w0puOVN1lalMkrRX1Sd1WPaFNXKQfSwk6oVs8KvuWLn5JHRx0GkVYs2ae35Ej8oVdRCtKLcD3XLk3h6hsD7f39U3T6/wBwlqLfLP8AV+icohRaaFRigdvdN1RgfRLOCAEQoEKbghEoAVduEuxmU05RaEG7pUSFIuUU4VDclazU29Cc1OFX/9k=" alt="" id="img1">
+
+</div>
+<div id="ajax-div">
+<h2 id="ajax-first">XMLHttpRequest Obj</h2>
+<button id="ajax-button">ajax button</button>
+</div>
+<button id="animate-method">animate method</button>
+
+<div id="div1" style="width:180px;height:180px;background-color:red;">After</div>
+<div id="div2" style="width:180px;height:180px;background-color:green;">Before</div>
+<div id="div3" style="width:180px;height:180px;background-color:blue;">Append</div>
+<div id="div4" style="width:180px;height:180px;background-color:rgb(0, 174, 255);">Prepend</div>
+<a href="yahoo.com" target="_blank">Google</a>
+    <a href="google.com" target="_self">Google 2</a>
+    
+    <button id="filter-method"> filter method</button>
+    <button id="has-method">has method</button>
+    <button id="data-method">data method</button>
+    <p>List 1</p>
+    <ul id="item-list">
+        <li>Foam</li>
+        <li id="first-li">
+            <a href="https://google.com">Outside</a>
+            <div><a href="" id="inside-a-div">Inside</a></div>
+
+        </li>
+        <li class="second-li">Milk</li>
+        <li>Tea</li>
+        <a href="https://google.com">Alacart</a>
+
+    </ul>
+    <a href="https://google.com">Outside ul</a>
+
+    <ul id="item-list2">
+        <a href="https://google.com">Outside ul</a>
+
+        <li>Foam</li>
+        <li id="first-li2">
+            <a href="https://google.com">Outside</a>
+            <div><a href="" id="inside-a-div">Inside</a></div>
+
+        </li>
+        <li>Milk</li>
+        <li>Tea</li>
+        <a href="https://google.com">Alacart</a>
+
+    </ul>
+    <ul id="item-list3">
+        <li>Foam</li>
+        <li id="first-li3">
+            <a href="https://google.com">Outside</a>
+            <div><a href="" id="inside-a-div3">Inside</a></div>
+
+        </li>
+        <li>Milk</li>
+        <li>Tea</li>
+        <a href="https://google.com">Alacart</a>
+
+    </ul>
+    <div id="container">
+        <p id="question1">What is the capital of Turkey?</p>
+        <input type="text" id="answer-box">
+        <p id="result"></p>
+        <p id="answer"></p>
+        <button  id="submit">submit</button>
+    </div>
+    <div>
+        <form >
+            
+            <input type="password" name="password" id="password">
+            <input type="text" name="text" id="text">
+            <input type="submit" value="submit">
+
+        </form>
+    </div>
+    <button id="btn1">Click Me for find method</button>
+    <button id="btn2">Click Me for children method</button>
+    <button id="btn3">Click for closest method</button>
+    <button id="btn4">Click for parent method </button>
+    <button id="btn5">Click for next method</button>
+    <button id="btn6">Click for prev method</button>
+    <button id="btn7">Click for siblings method</button>
+    <button id="btn8">Click for first method</button>
+    <button id="btn9">Click for last method</button>
+    <button id="btn10">Click alert to item-list html</button>
+    <button id="btn11">Click alert to item-list text</button>
+    
+    <button id="btn12">Click alert to inputed value</button>
+    <button id="btn13">AppendTo method</button>
+    
+<div>
+    <form>
+        <input type="radio" name="radiobutton-name" id="radio" value="radioVal">
+        <button id="radiobtn">radio button</button>
+    </form>
+</div>
+<script>
+        $(document).ready(function(){
+            $('#readyDemo').text('webpage is ready').css('color','green').css('color','blue');
+            //.fadeIn('slow');
+            $('h1').css('color','red');
+
+            $("a[target='_self']").css('color','green');
+            $("a[href='yahoo.com']").css('color','purple')
+            $('#item-list > li:first').css('color', 'red');
+            $("a:not([target='_self'])").text("Yahoo!");
+            
+            $("#btn1").click(
+                function(){
+                    $("#item-list").find("a").css('color','red');
+                    $("#item-list2").find("a").css('color','green');
+                }
+            );
+            $("#btn2").click(
+                function(){
+                    $("#first-li").children("a").css('color','yellow');
+                }
+            );
+            $("#btn3").click(
+                function(){
+                    $("#first-li2").closest("ul").css({"color": "red", "border": "2px solid red"});
+                }
+            );
+            $("#btn4").click(
+                function(){
+                    $("#first-li3").parent().css('border','1px solid green');
+                }
+            );
+            $("#btn5").click(
+                function(){
+                    $("#first-li").next().css('border','3px solid red');
+                }
+            );
+            $('#btn6').click(
+                function(){
+                    $("#first-li2").prev().css({"color":"purple", "border": " 4px solid green"});
+                    $("#item-list3 li:last").prev().css('color', 'yellow');
+                }
+            );
+            $("#btn7").click(
+                function(){
+                    $("#first-li").siblings().css({"color":"red", "border":"2px solid purple"});
+                }
+            );
+            $("#btn8").click(
+                function(){
+                    $("li").first().css('color', 'green');
+                }
+            );
+            $('#btn9').click(
+                function(){
+                    $("li").last().css('color','red');
+                }
+            );
+            $("#btn10").click(
+                function(){
+                    alert("HTML Code:" + $("#item-list").html());
+                }
+            );
+            
+            $("#btn11").click(
+                function(){
+                    alert("Text:" + $("#item-list").text());
+                }
+            );
+            $("#btn12").click(
+                function(){
+
+                    //val() -> works for just form / input values
+                    alert("Value:" + $("#answer-box").val());
+                }
+            );
+            $('#submit').click(
+                function(){
+                    let answer = $('#answer-box').val();
+                    if( answer == 'Ankara' ){
+                        $('#result').text('Correct');
+                    }else{
+                        $('#result').html('<span style="color:red">Incorrect</span>');
+                        $('#answer').text('Correct answer is Ankara!');
+                        
+                    }//else
+                }
+            );
+            $("#btn13").click(
+                function(){
+                    $('<div/>').appendTo('#append-to');
+                    $('<a/>',{
+                        id: 'zoo',
+                        href: 'https://google.com',
+                        title: 'AppendTo Method',
+                        rel: 'external',
+                        text: 'Go Hard Man!'
+                    }).appendTo('#append-to');
+                }
+            );
+            $("#for-boxes").click(
+                function(){
+                    $('#div1').after('<div>after attached</div>');
+                    $('#div2').before('<div>attached before</div>');
+                    $('#div3').append('<div>attached as last child via append</div>');
+                    $('#div4').prepend('<div>attached as first child via prepend</div>');
+
+                }
+            );
+            $("#attr1").click(
+                function(){
+                    let link = $("a").attr("href");
+                    $("#para1").text(link);
+
+                    //Set attr
+                    $("#img1").attr("src","data:image/jpeg;base64,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");
+                }
+            );
+            $("#remove-attr").click(
+                function(){
+                    $("#somemethods").removeAttr('id');
+                }
+            );
+            $("#has-class").click(
+                function(){
+                    let yesOrNo = $("#yes-or-no");
+                    let hasClass = $(".someclass").hasClass("someclass") ? "yes it has" : "no it has not";
+                    console.log(hasClass);
+                    yesOrNo.text(hasClass);
+                    //yesOrNo.text() = hasClass; ---> wrong usage
+                }
+            );
+            $('#add-class').click(
+                function(){
+                    $(".someclass").addClass("someclass-added", 500);
+                }
+            );
+            $("#remove-class").click(
+                function(){
+                    $(".someclass").removeClass("someclass-added", 1500);
+                }
+            );
+            $("#toggle-class").click(
+                function(){
+                    //jquery ui library has to be included to
+                    $(".someclass").toggleClass("someclass-added", 2000);
+                }
+            );
+            $("#toggle").click(
+                function(){
+                    //https://www.w3schools.com/jquery/eff_toggle.asp
+                    $(".someclass").toggle("slow");
+                    let yesOrNo = $("#yes-or-no");
+                    let count = 0;
+                    if( count%2 == 0){
+                        yesOrNo.text(" ");
+                    }else{
+                        yesOrNo.text("toggle method effect visibilty of the element");
+                    }//else
+
+                }
+            );
+            $("#clone").click(
+                function(){
+                    //if clone(true) --> clones also all eventHandlers
+                    //if clone(false) --> not clones eventHandlers
+                    $(".someclass").clone().insertAfter($("#readyDemo"));
+                }
+            );
+            let numList = [1,2,3,4,5];
+            $.each(numList, function(index, value){
+                console.log(index, value);
+
+            });
+            $("#each-method").click(function(){
+                let eachLiList = $("li");
+            $.each(eachLiList, function(index, value){
+                // console.log(eachLiList[index]);
+                //$().css("backgroundColor","coral");
+                let temp1 = $("#written-in-each");
+                let temp2 = eachLiList[index];
+                temp1.append(temp2); //.show("slow");
+                //temp2.text("each method used");
+                console.log("typeof temp2",typeof temp2);
+                console.log(temp2);
+                
+            });
+            //temp1.html(temp2);
+           // $("#show-each").html(eachLiList);
+            
+            });
+            //filter()
+            $("#filter-method").click(function(){
+               let secondLi = $("li").filter(".second-li");
+               console.log(secondLi);
+               secondLi.css("backgroundColor", "coral").toggle(5000);
+            });
+            //has
+            $("#has-method").click(function(){
+                let hasMethod = $("li").has("a");
+                console.log(hasMethod);
+                hasMethod.css("backgroundColor", "yellow").toggle(4000).toggle(2000).toggle(500);
+            });
+            //not
+            $("#not-method").click(function(){
+                $("p").not("#readyDemo").css("backgroundColor","coral");
+            });
+            ///data method is important!!!!!!!
+            $("#data-method").click(function(){
+                $("div").data("name","atilay");
+                //upside method doesnt create actually
+                //below is much commonly in safe
+                $("div").attr("data-info","mayadag");
+                // let dataArray = $.filter(".data");
+                // console.log(dataArray);
+                 let  filteredDivDataResult = $("div").data("info");
+                 console.log(filteredDivDataResult);
+                 $("#readyDemo").text(filteredDivDataResult);
+                 //filteredDiv.style("backgroundColor", "coral");
+            });;
+            //slideDown()
+            //slideUp()
+            //methods are also being used
+            //animate method
+
+            let count = 0;
+            $("#animate-method").click( function(){
+                
+                if(count%2==0){
+                    $("#div1").animate({width: '350px'},2000);
+
+                    
+                }else{
+                    $("#div1").animate({width: '180px'}, 2000);
+
+                }//else
+                count = count + 1;
+
+            }
+            //duration() method is also can be used
+            );
+            //
+            //TEXT BOXES
+            //$('input[type=text]')
+            let inputVal = $('input:text').val("New Try man");
+            console.log(inputVal);
+            $('input:submit').click(
+                function(){
+                    
+                    alert(inputVal);
+                }
+            );
+            //TEXTAREA
+            //$('input:textarea').val();  // get
+            //$('input:textarea').val('content written');  //set
+            //RADIO BUTTONS
+            $("radiobtn").click(
+                function(){
+                    preventDefault();
+            let val = $('input[type=radio]').val(); // get radio button value
+            $('#readyDemo').text(val);
+            //alert(val);
+            //instead of attr() we use prop()
+           // $('input[name=radiobutton-name:nth(0)]').prop('checked',true);  //seklinde
+           //asagıdaki yerine yukardakini kullanırız prop() kullanırız!
+            //$('input:radio[name=radiobutton-name]:nth(0)').attr('checked',true); //setting checked attr to radio button input
+            //$('input:radio[name=radiobutton-name]')[0].checked = true;
+            //bind() event
+            //$('selector').bind('event', function(event){ asdassad});
+            //unbind()   to remove an event handling from the element
+            //$(this).unbind('mouseenter');   //seklinde
+            // on()  method is the fresh one and better way instead bind() and unbind()
+            // $(selector).on('event',function(){});  //seklinde 
+            //new trend is
+            // $('selector').on(
+            //     mouseenter : function(){
+            //         asdasdsad
+            //     },
+            //     click: fuction(){
+            //         asdasdsadasdwqeewqeqweqwe
+            //     }
+            //     mouseleave: function(){
+            //         asdasdweqweqe21eqweqweqwe
+            //     }
+            // );  //seklinde
+            ///////////////////////////////
+            ///this and event
+            // $(document).on('click',function(){
+            //     console.log(event.type); // eg. 'click'
+            //     console.log(event.which); //the button or key was pressed
+            //     console.log(event.target); //the originating element
+            //     console.log(event.pageX); // mouse x coordinate
+            //     console.log(event.pageY); // mouse y coordinate
+            // });
+            ///////////
+            //working with this and events example
+            // $('input').on('keydown', function(event){
+
+            //     $(this).css('backgroundColor', event.which === 8 ? 'red' : 'green');
+
+            // // });
+            // $('a').on('click',function(event){
+            //     //preventing default event action 
+
+            //     //it is called on EVENT Object
+            //     //prevent the default action
+            //     event.prevent();
+
+            // });
+                //stop to event bubbling
+                //event.stopPropagation();
+                //REMOVİNG -- disconnecting events ---> off();
+                }
+            );
+
+            //off method to remove event  from an element!!!
+            $("#somemethods").on('click',function(){
+                    console.log(this);
+                    $(this).css({"background-color":"red"});
+                }); 
+                $("#button-off").click(function(){
+                    $("#somemethods").off("click");
+                });
+                //
+
+
+            //trigger method
+            let first = function(event){
+                console.log("clicked"),
+                console.log(event);
+
+                if(event.target === this) console.log("TRUEEEEEEEEEEEEEE");
+            }//f
+            $("p").on("click", first);
+            //trigger method()
+            setTimeout(() => {
+                $("p").trigger("click");
+            }, 2000);
+
+            // setInterval(() => {
+            
+//              
+    
+            // }, 3000);
+
+            //AJAX
+            // /////////////////
+            // $().ajax();
+            // $().get();
+            // $().getJSON();
+            // $().getScript();
+            // $().post();
+            // $().load();
+            // $.ajax({
+            //     url: "https://google.com",
+            //     type:'GET',
+            //     dataType: 'json',   
+            //     success: function(result){
+            //         console.log("success");
+            //     },
+            //     error: function(result){
+            //         console.log("error");
+            //     },
+            //     complete: function(){
+            //         console.log("completed");
+            //     }
+            // });
+            ////
+        // function loadFirst(){
+        //     let xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function(){
+        //         if(this.readystate == 4 &&  this.status == 200){
+        //             console.log("this.responseText",this.responseText);
+        //             $("#ajax-div").text(this.responseText);
+        //             console.logI("typeof this.responseText:", typeof this.responseText);
+
+        //         }
+        //     };//
+        //     xhttp.open("Get", "https://api.jsonbin.io/b/5e2705158d761771cc94ed93", true);
+        //     xhttp.send();
+        // }//loadFirst
+        // // $('#ajax-button').click(loadFirst);
+        // $("#action-button").click(function(){
+        //     $ajax({
+        //         url: 'http://api.joind.in/v2.1/talks/10889',
+        //         data: {
+        //             format: 'json'
+        //         },
+        //         error: function(){
+        //             $("#info").html('<p>error occured</p>');
+
+        //         },
+        //         dataType: 'jsonp',
+        //         success: function(data){
+        //             let  $title = $('<h1>').text(data.talks[0].talk_title);
+        //             let $description = $('<p>').text(data.talks[0].talk_description);
+        //             $('#info')
+        //                 .append($title);
+        //                 .append($description);
+        //         },
+        //         type:'GET'
+
+        //     });
+        // });
+        // function showValues(){
+        //     let str=  $("form").serialize();
+        //     $("#result").text(str);
+
+        // }//showVal
+        // $("input[type='checkbox'], input[type='radio']").on("click", showValues);
+        // $("select").on("change", showValues);
+        // showValues();
+        
+        // $.each();
+        $("li").each(function(index, element){
+            console.log("----------------------");
+            console.log($(this).text());
+        });
+        //trim()  --->  looose the white spaces
+        // inArray() -->for given specific value , it finds the index of that value in the array
+        //if not found  returns -1
+        let arr = [1,2,3,4];
+        let indexOfValue =  $.inArray('3', arr);
+        console.log("the index is :: ", indexOfValue);
+        //isFunction( someValue)   ---> checks if it is func or not  boolean returns
+        //isPlainObject( someVal ) --> checks if it is obj or  not
+        //isArray( someVal ) --> checks if it is array or not
+        // $.ajax().done(function(){
+        //     //here is promise waiting
+
+        // });
+        // let post =  $.ajax({
+        //     url: "/echo/json/",
+        //     data: {json: JSON.stringify({first:"Sai", last: "Ted"})},
+        //     type: "POST"
+
+        // });
+        // post.done( function(p){
+        //     alert(p.first);
+
+        // });
+        // post.fail(function(){
+        //     alert("error");
+        // });
+        // post.always(function(){
+        //     alert("operation completed");
+        // });
+            //ajax functions already return a promise and a promise has a method .done() !!! 
+            // let promise = $.post('/songs', {id: 1}).promise();
+            // promise.done(callback);
+
+            // function showSongs() {
+            //     console.log("songs");
+            // }
+            // $.deffered.when($.post('/song', {id:1}),$.post('/song', {id:2})).then(showSongs);
+            $(function () {
+                let fetchTweets = function(keywords){
+                    let dfd =  new $.Deferred();
+                    $.ajax({
+                        type:'GET',
+                        dataType:'jsonp',
+                        url: 'http://api.flickr.com/services/feeds/photos_public.gne?tags='+keywords+'&tagmode=any&format=json&jsoncallback=?',
+                        success: function(data){
+                            console.log(data);
+                            data = $.map(data.items, function(obj, index){
+                                return {
+                                    image: obj.media.m
+                                };
+                            });
+                            dfd.resolve(data);
+
+                        }
+                    });
+                    return dfd.promise();
+
+                };
+                
+            })
+
+
+
+
+        });
+
+
+    </script>
+</body>
+</html>
